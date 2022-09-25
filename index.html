@@ -8,11 +8,74 @@
     <title>線上訂餐</title>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <style>
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+        html,
+        body {
+            background-color: #2C5D63;
+            font-family: "Noto Sans TC", sans-serif !important;
+            color: #DFEBED;
+            font-weight: bold;
+        }
+        
+        button {
+            margin-top: 3vh;
+            margin-left: 3vh;
+            width: 80vw;
+            height: 15vw;
+            font-size: 11vw;
+            background: #ccc;
+            font-family: "Noto Sans TC", sans-serif !important;
+            font-weight: 1000;
+            border: 0 none;
+            cursor: pointer;
+            -webkit-border-radius: 5vw;
+            border-radius: 5vw;
+        }
+        
         input {
-            width: 300px;
-            font-size: 15px;
-            margin: 2px 0;
-            padding: 2px 5px;
+            margin-top: 3vh;
+            margin-left: 3vh;
+            width: 80vw;
+            height: 15vw;
+            font-size: 13vw;
+            padding: 5px 15px;
+            border: 2px black solid;
+            font-family: "Noto Sans TC", sans-serif !important;
+            font-weight: 1000;
+            cursor: pointer;
+            -webkit-border-radius: 5vw;
+            border-radius: 5vw;
+        }
+        
+        label {
+            font-size: 8vw;
+            font-family: "Noto Sans TC", sans-serif !important;
+            font-weight: 1000;
+        }
+        
+        h1 {
+            margin-top: 3vh;
+            margin-left: 3vh;
+            font-size: 10vw;
+            font-family: "Noto Sans TC", sans-serif !important;
+            font-weight: 1000;
+        }
+        
+        h3 {
+            margin-top: 3vh;
+            margin-left: 3vh;
+            font-size: 4vw;
+            font-family: "Noto Sans TC", sans-serif !important;
+            font-weight: 1000;
+        }
+        
+        input[type="radio"] {
+            margin-top: 1vh;
+            margin-left: 3vh;
+            width: 7vw;
+            height: 7vw;
+            padding: 5px 15px;
+            font-weight: 1000;
         }
     </style>
     <script>
@@ -27,7 +90,7 @@
         function StartS() {
             Clear();
             let le = document.getElementById("d1");
-            le.innerHTML = "座號:<input id='number'><br><button onclick='OnClickCheck1()'>確認</button>"
+            le.innerHTML = "<input id='number' placeholder='輸入座號'><br><button onclick='OnClickCheck1()'>確認</button>"
         }
 
         function Get(text, foo = Alert1) {
@@ -93,10 +156,10 @@
             let le = document.getElementById("d1");
             for (let i = 0; i < 14; i++) {
                 if (prices[i] > 0) {
-                    le.innerHTML += `<label for=p${i}>${foods[i]} ${prices[i]}元</label><input class='radio' id='p${i}'  data-price='${prices[i]}'type='radio' name='food' value='${foods[i]}'><br>`
+                    le.innerHTML += `<input class='radio' id='p${i}'  data-price='${prices[i]}'type='radio' name='food' value='${foods[i]}'><label for=p${i}>${foods[i]} ${prices[i]}元</label><br>`
                 }
             }
-            le.innerHTML += "<label for='cancel'>取消訂單</label><input class='radio' id='cancel' type='radio' name='food' value='cancel'><br>"
+            le.innerHTML += "<input class='radio' id='cancel' type='radio' name='food' value='cancel'><label for='cancel'>取消訂單</label><br>"
             le.innerHTML += "<button onclick='OnClickCheck2()'>送出</button>";
         }
 
